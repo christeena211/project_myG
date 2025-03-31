@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyG</title>
     
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
     
     <style>
         body {
@@ -98,6 +94,14 @@
         .btn-warning:hover {
             background: #e64a19;
         }
+        
+        /* Search Bar and Buttons Container */
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -106,12 +110,19 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">MyG</a>
+            
+            <form class="d-flex" role="search">  
+                <input class="form-control me-2" type="search" placeholder="Search for products..." aria-label="Search" style="width: 300px;">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+    
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/products1/"> Mobile Phones</a></li>
+    
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/products1/">Mobile Phones</a></li>
                     <li class="nav-item"><a class="nav-link" href="/products2/">Laptops</a></li>
                     <li class="nav-item"><a class="nav-link" href="/products3/">Tablets</a></li>
                     <li class="nav-item"><a class="nav-link" href="/products4/">Accessories</a></li>
@@ -119,25 +130,22 @@
             </div>
         </div>
     </nav>
+    
+
+    <div class="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content text-center">
-            <style>
-                .center-block {
-                    width: 50%;  /* You need to define width */
-                    margin: 0 auto;  /* This will center the block horizontally */
-                }
-            </style>
             <h1>Welcome to MyG</h1>
             <p>Smart Management for Customers, Employees & Products</p>
-            <div class="mb-3">
-                <input type="text" id="searchInput" class="form-control" placeholder="Search for products...">
+
+        
                 <a href="/customers/" class="btn btn-primary btn-custom m-2">Manage Customers</a>
                 <a href="/employees/" class="btn btn-success btn-custom m-2">Manage Employees</a>
                 <a href="products.html" class="btn btn-warning btn-custom m-2">Manage Products</a>
-
-
-            </div>
+        
         </div>
-    
+    </div>
 
- </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
