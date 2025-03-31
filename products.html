@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Navbar -->
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">MyG Mobile Hub</a>
@@ -48,10 +48,10 @@
     </div>
 
     <script>
-        // Sample products array for illustration
+        
         let products = [];
 
-        // Function to load products into the table
+        
         function loadProducts() {
             let productTable = document.getElementById("productTable");
             productTable.innerHTML = "";
@@ -71,7 +71,7 @@
             });
         }
 
-        // Add product to the system (you would normally send this data to the backend)
+        
         document.getElementById("productForm").addEventListener("submit", function(event) {
             event.preventDefault();
             let productName = document.getElementById("productName").value;
@@ -87,23 +87,21 @@
 
             products.push(newProduct);
             loadProducts();
-            event.target.reset(); // Clear form fields
+            event.target.reset(); 
         });
 
-        // Edit product (Placeholder for editing functionality)
+        
         function editProduct(id) {
             let product = products.find(p => p.id === id);
             console.log("Editing product", product);
-            // Implement logic to edit product details
+            
         }
 
-        // Delete product (Placeholder for deletion logic)
+        
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
             loadProducts();
         }
-
-        // Initial load of products (In real-world, data would be fetched from the backend)
         loadProducts();
     </script>
 
