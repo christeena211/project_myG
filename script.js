@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Example Function: Alert when clicking "Manage Products"
     document.querySelector('.btn-warning').addEventListener('click', (event) => {
         event.preventDefault();
-        alert("Redirecting to Product Management...");
         window.location.href = 'products.html';
     });
 });
