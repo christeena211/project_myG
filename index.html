@@ -4,105 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyG</title>
-    
+
+    <!-- Bootstrap & Google Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     
-    <style>
-        body {
-            font-family: 'Gill Sans', sans-serif;
-            background: linear-gradient(to right, #f1efef, #d23b11);
-            color: #d36a08;
-        }
-
-        
-        .navbar {
-            background: rgba(0, 0, 0, 0.8);
-        }
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        .navbar-nav .nav-link {
-            font-size: 1.1rem;
-            margin-right: 15px;
-            transition: 0.3s;
-        }
-        .navbar-nav .nav-link:hover {
-            color: #ffcc00 !important;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: url('https://source.unsplash.com/1600x900/?Technology, Hub') no-repeat center center/cover;
-            position: relative;
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(53, 21, 1, 0.6);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        /* Buttons */
-        .btn-custom {
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 30px;
-            transition: 0.3s;
-            border: none;
-        }
-        .btn-primary {
-            background: #e3e2e0;
-            color: #000;
-        }
-        .btn-primary:hover {
-            background: #e66400;
-            color: #000;
-        }
-        .btn-success {
-            background: #28a745;
-        }
-        .btn-success:hover {
-            background: #024d12;
-        }
-        .btn-warning {
-            background: #d25f31;
-        }
-        .btn-warning:hover {
-            background: #e64a19;
-        }
-        
-        /* Search Bar and Buttons Container */
-        .search-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -112,14 +21,14 @@
             <a class="navbar-brand" href="/">MyG</a>
             
             <form class="d-flex" role="search">  
-                <input class="form-control me-2" type="search" placeholder="Search for products..." aria-label="Search" style="width: 300px;">
+                <input class="form-control me-2" type="search" placeholder="Search for products..." aria-label="Search">
                 <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
-    
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
+
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person"></i> Profile</a></li>
@@ -127,34 +36,30 @@
                     <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-cart"></i> Cart</a></li>
                 </ul>
             </div>
-            
         </div>
     </nav>
-    
 
+    <!-- Hero Section -->
     <div class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content text-center">
             <h1>Welcome to MyG</h1>
             <p>Smart Management for Customers, Employees & Products</p>
 
-        
-                <a href="/customers/" class="btn btn-primary btn-custom m-2">Manage Customers</a>
-                <a href="/employees/" class="btn btn-success btn-custom m-2">Manage Employees</a>
-                <a href="products.html" class="btn btn-warning btn-custom m-2">Manage Products</a>
-        
+            <a href="/customers/" class="btn btn-primary btn-custom m-2">Manage Customers</a>
+            <a href="/employees/" class="btn btn-success btn-custom m-2">Manage Employees</a>
+            <a href="products.html" class="btn btn-warning btn-custom m-2">Manage Products</a>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
-        <p>📧 Email: <a href="sales@myg.in" class="text-white">sales@myg.in</a></p>
+        <p>📧 Email: <a href="mailto:sales@myg.in" class="text-white">sales@myg.in</a></p>
         <p>📞 Phone: +919249001001</p>
-        <p>📍 Address: myG India Private Limited
-            Calicut myG Corporate Office, Mini Bypass, Puthiyara, Kozhikode, Kerala</p>
-        
-        </p>
+        <p>📍 Address: myG India Private Limited, Calicut myG Corporate Office, Mini Bypass, Puthiyara, Kozhikode, Kerala</p>
     </footer>
-    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
