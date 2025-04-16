@@ -1,25 +1,28 @@
 // Load all bookings from the server and display them
-function loadBookings() {
-  fetch('/api/bookings')
-    .then(response => response.json())
-    .then(bookings => {
-      const bookingsList = document.getElementById('bookings-list');
-      bookingsList.innerHTML = ''; // Clear the list before adding new rows
-      bookings.forEach(booking => {
-        const listItem = document.createElement('li');
-        listItem.classList.add('list-group-item');
-        listItem.innerHTML = `
-          <strong>${booking.name}</strong> (${booking.email})<br>
-          Service: ${booking.service} | Date: ${booking.date} | Time: ${booking.time}
-          <button class="btn btn-danger btn-sm float-end" onclick="deleteBooking(${booking.id})">Delete</button>
-          <button class="btn btn-info btn-sm float-end me-2" onclick="editBooking(${booking.id})">Edit</button>
-        `;
-        bookingsList.appendChild(listItem);
-      });
-    })
-    .catch(error => {
-      console.error('Error loading bookings:', error);
+async function loadBookings() {
+  try {
+    const res = await fetch('/api/bookings');
+    const bookings = await res.json();
+    const bookingsList = document.getElementById('bookings-list'); // Ensure this is the correct element ID
+    bookingsList.innerHTML = ''; // Clear the list before adding new rows
+
+    bookings.forEach(booking => {
+      const listItem = document.createElement('li');
+      listItem.classList.add('list-group-item');
+      listItem.id = `booking-${booking.id}`; // Set a unique ID for each list item
+
+      listItem.innerHTML = `
+        <strong>${booking.name}</strong> (${booking.email})<br>
+        Service: ${booking.service} | Date: ${booking.date} | Time: ${booking.time}
+        <button class="btn btn-danger btn-sm float-end" onclick="deleteBooking(${booking.id})">Delete</button>
+        <button class="btn btn-info btn-sm float-end me-2" onclick="editBooking(${booking.id})">Edit</button>
+      `;
+
+      bookingsList.appendChild(listItem);
     });
+  } catch (error) {
+    console.error('Error loading bookings:', error);
+  }
 }
 
 // Form submission handling
@@ -52,9 +55,7 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
 });
 
 // Delete booking by id
-// Function to handle delete operation
 async function deleteBooking(id) {
-  // Send DELETE request to backend to delete the booking from the database
   try {
     const res = await fetch(`/api/bookings/${id}`, { method: 'DELETE' });
     const data = await res.json();
@@ -62,7 +63,7 @@ async function deleteBooking(id) {
     // If deletion is successful, remove the booking from the UI
     if (data.message === 'Booking deleted') {
       console.log("Deleted from database:", id);
-      
+
       // Remove the corresponding list item (booking) from the frontend
       const bookingItem = document.getElementById(`booking-${id}`);
       if (bookingItem) {
@@ -75,30 +76,6 @@ async function deleteBooking(id) {
     console.error("Error deleting booking:", error);
   }
 }
-
-// Load the bookings from the server and display them
-async function loadBookings() {
-  const res = await fetch('/api/bookings');
-  const bookings = await res.json();
-  const list = document.getElementById('bookingList');
-  list.innerHTML = '';
-  bookings.forEach(b => {
-    const li = document.createElement('li');
-    li.id = `booking-${b.id}`; // Set unique ID for each list item
-
-    li.textContent = `${b.name} - ${b.service} on ${b.date} at ${b.time}`;
-
-    // Create delete button
-    const delBtn = document.createElement('button');
-    delBtn.textContent = 'Delete';
-    delBtn.onclick = () => deleteBooking(b.id); // Delete when clicked
-
-    li.appendChild(delBtn);
-    list.appendChild(li);
-  });
-}
-
-window.onload = loadBookings;
 
 // Edit booking by id (basic example)
 function editBooking(id) {
@@ -120,8 +97,7 @@ function editBooking(id) {
       });
 }
 
+// Run when the page is loaded
 window.onload = function() {
   loadBookings();
-}
-
 };
