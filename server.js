@@ -34,7 +34,7 @@ app.post('/api/book', async (req, res) => {
   const { name, email, date, time, service } = req.body;
   try {
     const [result] = await db.execute(
-      'INSERT INTO bookings (id,name, email, date, time, service) VALUES (?, ?, ?, ?, ?)',
+      'INSERT INTO bookings (name, email, date, time, service) VALUES (?, ?, ?, ?, ?)',
       [name, email, date, time, service]
     );
     res.json({ message: 'Booking added', bookingId: result.insertId });
@@ -43,6 +43,7 @@ app.post('/api/book', async (req, res) => {
     res.status(500).json({ error: 'Failed to save booking' });
   }
 });
+
 
 // Get all bookings
 app.get('/api/bookings', async (req, res) => {
