@@ -80,6 +80,7 @@
         const row = document.createElement('tr');
 
         row.innerHTML = `
+          <td><input value="${b.id}" disabled /></td>
           <td><input value="${b.name}" disabled /></td>
           <td><input value="${b.email}" disabled /></td>
           <td><input value="${b.date.split('T')[0]}" disabled /></td>
