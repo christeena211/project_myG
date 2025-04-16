@@ -1,7 +1,6 @@
 // Load all bookings from the server and display them
 function loadBookings() {
-  fetch('https://http://localhost:3000/api/bookings')
-
+  fetch('http://localhost:3000/api/bookings') // Corrected the URL
     .then(response => response.json())
     .then(bookings => {
       const bookingsList = document.getElementById('bookings-list');
@@ -77,30 +76,6 @@ async function deleteBooking(id) {
   }
 }
 
-// Load the bookings from the server and display them
-async function loadBookings() {
-  const res = await fetch('/api/bookings');
-  const bookings = await res.json();
-  const list = document.getElementById('bookingList');
-  list.innerHTML = '';
-  bookings.forEach(b => {
-    const li = document.createElement('li');
-    li.id = `booking-${b.id}`; // Set unique ID for each list item
-
-    li.textContent = `${b.name} - ${b.service} on ${b.date} at ${b.time}`;
-
-    // Create delete button
-    const delBtn = document.createElement('button');
-    delBtn.textContent = 'Delete';
-    delBtn.onclick = () => deleteBooking(b.id); // Delete when clicked
-
-    li.appendChild(delBtn);
-    list.appendChild(li);
-  });
-}
-
-window.onload = loadBookings;
-
 // Edit booking by id (basic example)
 function editBooking(id) {
   const newName = prompt("Enter new name:");
@@ -121,8 +96,5 @@ function editBooking(id) {
       });
 }
 
-window.onload = function() {
-  loadBookings();
-}
-
-};
+// Load the bookings from the server and display them on page load
+window.onload = loadBookings;
