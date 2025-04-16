@@ -40,4 +40,46 @@ app.post('/api/book', async (req, res) => {
     res.json({ message: 'Booking added', bookingId: result.insertId });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: '
+    res.status(500).json({ error: 'Failed to save booking' });
+  }
+});
+
+// Get all bookings
+app.get('/api/bookings', async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT * FROM bookings ORDER BY id DESC');
+    res.json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to load bookings' });
+  }
+});
+
+// Delete booking
+app.delete('/api/bookings/:id', async (req, res) => {
+  try {
+    await db.execute('DELETE FROM bookings WHERE id = ?', [req.params.id]);
+    res.json({ message: 'Booking deleted' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete booking' });
+  }
+});
+
+// Update booking
+app.put('/api/bookings/:id', async (req, res) => {
+  const { name, email, date, time, service } = req.body;
+  try {
+    await db.execute(
+      'UPDATE bookings SET name = ?, email = ?, date = ?, time = ?, service = ? WHERE id = ?',
+      [name, email, date, time, service, req.params.id]
+    );
+    res.json({ message: 'Booking updated' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update booking' });
+  }
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
