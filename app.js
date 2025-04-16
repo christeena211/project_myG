@@ -11,7 +11,7 @@ const db = mysql.createConnection({
     host: 'localhost',   // Use 'localhost' for local MySQL server
     user: 'root',        // Default MySQL username in XAMPP
     password: '',        // Default password in XAMPP (empty)
-    database: 'your_database_MyG'  // Replace with your actual database name
+    database: 'your_database_myg'  // Replace with your actual database name
   });
   
 
