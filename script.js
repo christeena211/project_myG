@@ -1,6 +1,7 @@
 // Load all bookings from the server and display them
 function loadBookings() {
-  fetch('/api/bookings')
+  fetch('https://http://localhost:3000/api/bookings')
+
     .then(response => response.json())
     .then(bookings => {
       const bookingsList = document.getElementById('bookings-list');
