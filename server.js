@@ -84,3 +84,6 @@ app.put('/api/bookings/:id', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+const cors = require('cors');
+app.use(cors());  // Allow all CORS requests
+
