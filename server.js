@@ -21,9 +21,9 @@ let db;
       password: process.env.DB_PASSWORD || '',
       database: process.env.DB_NAME || 'your_database_myg'
     });
-    console.log("✅ Connected to MySQL database.");
+    console.log(" Connected to MySQL database.");
   } catch (err) {
-    console.error("❌ Error connecting to database:", err);
+    console.error(" Error connecting to database:", err);
   }
 })();
 
@@ -81,5 +81,5 @@ app.put('/api/bookings/:id', async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(` Server running at http://localhost:${PORT}`);
 });

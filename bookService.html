@@ -106,14 +106,14 @@
         const result = await res.json();
 
         if (res.ok) {
-          const msg = `✅ Booking confirmed! Your ID is ${result.bookingId}`;
+          const msg = ` Booking confirmed! Your ID is ${result.bookingId}`;
           showMessage(msg, true);
           document.getElementById('bookingForm').reset();
         } else {
-          showMessage(`❌ Error: ${result.error}`, false);
+          showMessage(`Error: ${result.error}`, false);
         }
       } catch (error) {
-        showMessage(`❌ Request failed. ${error}`, false);
+        showMessage(` Request failed. ${error}`, false);
       }
     });
 
